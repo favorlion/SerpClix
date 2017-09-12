@@ -1,0 +1,28 @@
+{
+
+  "manifest_version": 2,
+  "name": "SerpClix Clicksense",
+  "version": "1.0.4",
+
+  "description": "Manages and tracks seller click activity on Google search results",
+  "homepage_url": "https://serpclix.com/",
+  "icons": {
+    "48": "icons/plugin-64.png"
+  },
+  "permissions": [
+    "*://*/*",
+    "tabs",
+    "activeTab",
+    "storage",
+    "notifications"
+  ],
+  "browser_action": {
+    "default_icon": "icons/plugin-32.png",
+    "default_title": "SerpClix Clicksense",
+    "default_popup": "html/credentials-form.html"
+  },
+  "background": {
+    "scripts": ["./js/addon/orderlist-tab-util.js", "background.js"]
+  }
+
+}

@@ -1,0 +1,16 @@
+{
+  "title": "SerpClix ClickSense",
+  "name": "serpclixclicksense",
+  "version": "0.1.22",
+  "description": "Manages and tracks seller click activity on Google search results",
+  "main": "index.js",
+  "author": "SerpClix.com",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}

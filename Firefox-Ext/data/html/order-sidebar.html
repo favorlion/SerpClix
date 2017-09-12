@@ -1,0 +1,143 @@
+<html lang="en">
+<head>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    ol {
+      padding: 0;
+    }
+
+    ol li {
+      position: relative;
+    }
+
+    .order {
+      background-color: #b3d8ff;
+      border-bottom: 2px solid white;
+      margin: 0;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    .order:hover {
+      background: #80beff;
+      cursor: pointer;
+    }
+
+    .keyword {
+      margin-bottom: 12px;
+      /* disable keyword selection */
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    span:nth-child(2) {
+      font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+      font-weight: bold;
+    }
+
+    span:nth-child(2)::before {
+      content: ' '
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+      padding: 4px;
+      border-radius: 4px;
+    }
+
+    .float-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      opacity: .5;
+      font-size: 8px;
+    }
+
+    .float-bottom:hover {
+      opacity: 1;
+    }
+
+    .float-bottom table {
+      border-collapse: collapse;
+    }
+
+    .float-bottom td {
+      text-align: center;
+      border: 1px #aaa solid;
+      padding: 2px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .float-bottom:hover {
+      background: orange;
+    }
+
+    .tier-id {
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      border-top: 1px black solid;
+      border-left: 1px black solid;
+      border-radius: 3px 0 0 0;
+      padding: 4px;
+      box-sizing: border-box;
+      font-size: 10px;
+    }
+
+    .no-orders {
+      margin-top: 100px;
+      color: #b3b3b3;
+      text-align: center;
+      font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    }
+  </style>
+</head>
+<body ng-app="serpClix" ng-controller="OrderSidebarController">
+<div id="content">
+  <h2 class="no-orders" ng-if="message" ng-bind="message"></h2>
+  <ol>
+    <li class="order" ng-repeat="order in orderData.orders" ng-click="handleOrderClicked($event, order)">
+      <div class="keyword">
+        <span>Keyword:</span>
+        <span ng-bind="order.keyword"></span>
+      </div>
+      <div class="url">
+        <span>URL:</span>
+            <span>
+              <a ng-href="{{ order.url }}">{{ order.url }}</a>
+            </span>
+      </div>
+      <span title="Order tier" class="tier-id">{{ order.tier_display }}</span>
+    </li>
+  </ol>
+</div>
+<div class="float-bottom">
+  <table>
+    <tbody>
+    <tr>
+      <td>Country</td>
+      <td id="country" ng-bind="orderData.country_name || '--'"></td>
+    </tr>
+    <tr>
+      <td>Tier</td>
+      <td id="tier" ng-bind="orderData.tier_alias || '--'"></td>
+    </tr>
+    <tr>
+      <td>IP Quality</td>
+      <td id="ip_quality" ng-bind="orderData.ipQuality"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script type="text/javascript" src="../js/angular.js"></script>
+<script type="text/javascript" src="../js/modules/serpclix.js"></script>
+<script type="text/javascript" src="../js/controllers/order-sidebar.js"></script>
+<script type="text/javascript" src="../js/services/risk-score-quality.js"></script>
+</body>
+</html>

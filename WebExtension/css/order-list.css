@@ -1,0 +1,95 @@
+body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+    }
+
+ol {
+  padding: 0;
+}
+
+ol li {
+  position: relative;
+}
+
+.order {
+  background-color: #b3d8ff;
+  border-bottom: 2px solid white;
+  margin: 0;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.order:hover {
+  background: #80beff;
+  cursor: pointer;
+}
+
+.keyword {
+  margin-bottom: 12px;
+  /* disable keyword selection */
+  -moz-user-select: none;
+  user-select: none;
+}
+
+span:nth-child(2) {
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+  font-weight: bold;
+}
+
+span:nth-child(2)::before {
+  content: ' '
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.float-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: .5;
+  font-size: 8px;
+}
+
+.float-bottom:hover {
+  opacity: 1;
+}
+
+.float-bottom table {
+  border-collapse: collapse;
+}
+
+.float-bottom td {
+  text-align: center;
+  border: 1px #aaa solid;
+  padding: 2px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.float-bottom:hover {
+  background: orange;
+}
+
+.tier-id {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  border-top: 1px black solid;
+  border-left: 1px black solid;
+  border-radius: 3px 0 0 0;
+  padding: 4px;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+.no-orders {
+  margin-top: 100px;
+  color: #b3b3b3;
+  text-align: center;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}

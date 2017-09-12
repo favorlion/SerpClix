@@ -1,0 +1,31 @@
+<body ng-app="serpClix" ng-controller="OrderSidebarController">
+<div id="content">
+  <h2 class="no-orders" ng-if="message" ng-bind="message"></h2>
+  <ol>
+    <li class="order" ng-repeat="order in orderData.orders" ng-click="handleOrderClicked($event, order)">
+      <div class="keyword">
+        <span>Keyword:</span>
+        <span ng-bind="order.keyword"></span>
+      </div>
+      <div class="url">
+        <span>URL:</span>
+        <span><a ng-href="{{ order.url }}">{{ order.url }}</a></span>
+      </div>
+    </li>
+  </ol>
+</div>
+<div class="float-bottom">
+  <table>
+    <tbody>
+    <tr>
+      <td>Country</td>
+      <td id="country" ng-bind="orderData.country_name || '--'"></td>
+    </tr>
+    <tr>
+      <td>Tier</td>
+      <td id="tier" ng-bind="orderData.tier_alias || '--'"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>

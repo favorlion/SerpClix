@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+  <title>Order List - SerpClix ClickSense</title>
+  <link rel="stylesheet" href="../css/order-list.css"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-app="serpClix" ng-controller="OrderSidebarController">
+<div id="content">
+  <h2 class="no-orders" ng-if="message" ng-bind="message"></h2>
+  <ol>
+    <li class="order" ng-repeat="order in orderData.orders" ng-click="handleOrderClicked($event, order)">
+      <div class="keyword">
+        <span>Keyword:</span>
+        <span ng-bind="order.keyword"></span>
+      </div>
+      <div class="url">
+        <span>URL:</span>
+            <span>
+              <a ng-href="{{ order.url }}">{{ order.url }}</a>
+            </span>
+      </div>
+      <span title="Order tier" class="tier-id">{{ order.tier_display }}</span>
+    </li>
+  </ol>
+</div>
+<div class="float-bottom">
+  <table>
+    <tbody>
+    <tr>
+      <td>Country</td>
+      <td id="country" ng-bind="orderData.country_name || '--'"></td>
+    </tr>
+    <tr>
+      <td>Tier</td>
+      <td id="tier" ng-bind="orderData.tier_alias || '--'"></td>
+    </tr>
+    <tr>
+      <td>IP Quality</td>
+      <td id="ip_quality" ng-bind="orderData.ipQuality"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script type="text/javascript" src="../js/vendor/angular.js"></script>
+<script type="text/javascript" src="../js/vendor/moment.js"></script>
+<script type="text/javascript" src="../js/vendor/URI.min.js"></script>
+<script type="text/javascript" src="../js/addon/global.js"></script>
+<script type="text/javascript" src="../js/addon/settings.js"></script>
+<script type="text/javascript" src="../js/addon/order-filter.js"></script>
+<script type="text/javascript" src="../js/modules/serpclix.js"></script>
+<script type="text/javascript" src="../js/controllers/order-list.js"></script>
+<script type="text/javascript" src="../js/services/risk-score-quality.js"></script>
+</body>
+</html>
